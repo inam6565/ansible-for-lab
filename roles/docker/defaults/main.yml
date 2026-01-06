@@ -23,4 +23,7 @@ docker_packages:
 
 # User to add into docker group
 docker_users:
-  - "{{ ansible_user }}"
+  - "{{ docker_primary_user }}"
+
+docker_primary_user: "{{ lookup('env', 'USER') | default('inam', true) }}"
+
