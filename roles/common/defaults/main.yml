@@ -1,0 +1,16 @@
+# common role defaults
+---
+# Base packages for OS preparation
+common_base_packages:
+  - curl
+  - wget
+  - git
+  - ca-certificates
+  - lsb-release
+  - software-properties-common
+
+# Python for Ansible
+common_python_package: python3
+
+# Optional: timezone
+common_timezone: UTC
