@@ -1,0 +1,15 @@
+# Tasks for Docker networks role
+
+---
+- name: Ensure Docker is running
+  command: docker info
+  changed_when: false
+
+- name: Create Docker networks
+  community.docker.docker_network:
+    name: "{{ item.name }}"
+    driver: "{{ docker_network_driver }}"
+    ipam_config:
+      - subnet: "{{ item.subnet }}"
+    state: present
+  loop: "{{ docker_networks }}"

@@ -1,0 +1,12 @@
+# Default variables for Docker networks role
+
+---
+docker_networks:
+  - name: ci_net
+    subnet: 172.20.0.0/16
+  - name: registry_net
+    subnet: 172.21.0.0/16
+  - name: app_net
+    subnet: 172.22.0.0/16
+
+docker_network_driver: bridge
