@@ -1,0 +1,13 @@
+# Tasks for documentation role
+---
+- name: Ensure documentation directory exists
+  file:
+    path: /opt/devops-lab/docs
+    state: directory
+    mode: "0755"
+
+- name: Generate architecture documentation
+  template:
+    src: architecture.md.j2
+    dest: /opt/devops-lab/docs/architecture.md
+    mode: "0644"

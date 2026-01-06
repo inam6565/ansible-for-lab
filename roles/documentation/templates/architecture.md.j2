@@ -1,0 +1,51 @@
+# Template for architecture documentation
+# DevOps Lab – Phase 0 Architecture
+
+## Overview
+This lab is automatically provisioned using Ansible.
+Phase 0 establishes the base CI infrastructure.
+
+---
+
+## Host
+- OS: {{ ansible_distribution }} {{ ansible_distribution_version }}
+- Hostname: {{ ansible_hostname }}
+- Architecture: {{ ansible_architecture }}
+
+---
+
+## Container Runtime
+- Docker Engine installed via official repository
+- Managed using Ansible (community.docker)
+
+---
+
+## Docker Networks
+| Name | Driver | Purpose |
+|-----|-------|--------|
+| ci_net | bridge | CI/CD internal network |
+
+---
+
+## Jenkins Controller
+- Image: jenkins/jenkins:lts-jdk17
+- Container Name: jenkins-vm
+- Network: ci_net
+- Data Path: /opt/devops-lab/jenkins-vm/data
+- Port: 8080
+
+---
+
+## Design Principles
+- Idempotent provisioning
+- Least privilege
+- Persistent state
+- Reproducible builds
+
+---
+
+## Phase Status
+- Phase 0: Base infrastructure ✅
+- Phase 1: CI pipelines ⏳
+- Phase 2: Build agents ⏳
+- Phase 3: Registry & artifacts ⏳
