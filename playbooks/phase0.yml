@@ -1,6 +1,6 @@
 # Main Phase 0 playbook
 ---
-- name: Phase 0 Lab Setup
+- name: DevOps Lab - Phase 0
   hosts: lab_hosts
   become: true
   gather_facts: yes
