@@ -1,0 +1,18 @@
+# Tasks for lab directories role
+---
+- name: Ensure lab base directory exists
+  file:
+    path: "{{ lab_base_dir }}"
+    state: directory
+    owner: "{{ lab_owner_user }}"
+    group: "{{ lab_owner_user }}"
+    mode: "{{ lab_dir_mode }}"
+
+- name: Ensure lab subdirectories exist
+  file:
+    path: "{{ lab_base_dir }}/{{ item }}"
+    state: directory
+    owner: "{{ lab_owner_user }}"
+    group: "{{ lab_owner_user }}"
+    mode: "{{ lab_dir_mode }}"
+  loop: "{{ lab_subdirectories }}"

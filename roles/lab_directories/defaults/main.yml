@@ -1,0 +1,16 @@
+# Default variables for lab directories role
+
+---
+# Base directory for entire lab
+lab_base_dir: /opt/devops-lab
+
+# Subdirectories inside base dir
+lab_subdirectories:
+  - jenkins-vm
+  - registry-vm
+  - app-runtime-vm
+  - docs
+
+# Ownership (default to SSH user)
+lab_owner_user: "{{ ansible_user }}"
+lab_dir_mode: "0755"

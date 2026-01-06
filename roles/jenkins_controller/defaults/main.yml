@@ -1,0 +1,19 @@
+# Default variables for Jenkins controller role
+
+---
+jenkins_container_name: jenkins-vm
+jenkins_image: jenkins/jenkins:lts-jdk17
+
+jenkins_network: ci_net
+
+jenkins_ports:
+  - "8080:8080"
+
+jenkins_base_dir: /opt/devops-lab/jenkins-vm
+jenkins_data_dir: "{{ jenkins_base_dir }}/data"
+
+# Jenkins runs as UID 1000 inside container
+jenkins_uid: 1000
+jenkins_gid: 1000
+
+jenkins_restart_policy: unless-stopped

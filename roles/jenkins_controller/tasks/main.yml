@@ -1,0 +1,34 @@
+# Tasks for Jenkins controller role
+
+---
+- name: Ensure Docker is available
+  command: docker info
+  changed_when: false
+
+- name: Ensure Jenkins base directory exists
+  file:
+    path: "{{ jenkins_base_dir }}"
+    state: directory
+    owner: "{{ jenkins_uid }}"
+    group: "{{ jenkins_gid }}"
+    mode: "0755"
+
+- name: Ensure Jenkins data directory exists
+  file:
+    path: "{{ jenkins_data_dir }}"
+    state: directory
+    owner: "{{ jenkins_uid }}"
+    group: "{{ jenkins_gid }}"
+    mode: "0755"
+
+- name: Run Jenkins container
+  community.docker.docker_container:
+    name: "{{ jenkins_container_name }}"
+    image: "{{ jenkins_image }}"
+    state: started
+    restart_policy: "{{ jenkins_restart_policy }}"
+    networks:
+      - name: "{{ jenkins_network }}"
+    published_ports: "{{ jenkins_ports }}"
+    volumes:
+      - "{{ jenkins_data_dir }}:/var/jenkins_home"
