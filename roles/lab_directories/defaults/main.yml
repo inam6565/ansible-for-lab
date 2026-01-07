@@ -12,5 +12,5 @@ lab_subdirectories:
   - docs
 
 # Ownership (default to SSH user)
-lab_owner_user: "{{ ansible_user }}"
+lab_owner_user: "{{ lab_primary_user }}"
 lab_dir_mode: "0755"
