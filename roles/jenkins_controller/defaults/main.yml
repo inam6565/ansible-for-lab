@@ -17,3 +17,9 @@ jenkins_uid: 1000
 jenkins_gid: 1000
 
 jenkins_restart_policy: unless-stopped
+
+# Jenkins container resources
+jenkins_cpu_limit: 1.0
+jenkins_memory_limit: "1024m"
+jenkins_memory_swap: "1024m"
+

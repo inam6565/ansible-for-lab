@@ -32,6 +32,6 @@
     published_ports: "{{ jenkins_ports }}"
     volumes:
       - "{{ jenkins_data_dir }}:/var/jenkins_home"
-    memory: 1g  # Set memory limit
-    memoryswap: 2g  # Set memory swap limit
-    cpu_shares: 1024  # Set CPU priority (relative weight, 1024 is the default)
+    cpus: "{{ jenkins_cpu_limit }}"
+    memory: "{{ jenkins_memory_limit }}"
+    memory_swap: "{{ jenkins_memory_swap }}"
